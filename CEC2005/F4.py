@@ -1,18 +1,24 @@
-'''F1绘图函数'''
 import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-import opfunu
-def F1(X):
-    problem = opfunu.cec_based.F12022(ndim=2)
-    Results=problem.evaluate(X)
-    return Results
+dim = 2
 
-def F1Plot():
+def F42005 (X):
+    '''F4_2005绘图函数'''
+    dim=X.shape[0]
+    f_bias_4 = -450
+    result = 0
+    for i in range(dim):
+        result = (result + np.sum(X[0:i+1])**2) * (1 + 0.4 * np.abs(np.random.normal(0, 1))) + f_bias_4
+    return result 
+
+def F4Plot():
     fig = plt.figure(1) #定义figure
     ax = Axes3D(fig) #将figure变为3d
-    x1=np.arange(-2,2,0.1) #定义x1，范围为[-100,100],间隔为2
-    x2=np.arange(-2,2,0.1) #定义x2，范围为[-100,100],间隔为2
+
+    x1=np.arange(-100,100,2) #定义x1，范围为[-100,100],间隔为2
+    x2=np.arange(-100,100,2) #定义x2，范围为[-100,100],间隔为2
+
     X1,X2=np.meshgrid(x1,x2) #生成网格
     nSize = x1.shape[0]
     Z=np.zeros([nSize,nSize])
@@ -20,7 +26,7 @@ def F1Plot():
         for j in range(nSize):
             X=[X1[i,j],X2[i,j]] #构造F1输入
             X=np.array(X) #将格式由list转换为array
-            Z[i,j]=F1(X)  #计算F1的值
+            Z[i, j] = F42005(X)  # 计算F1的值
     #绘制3D曲面
     # rstride:行之间的跨度  cstride:列之间的跨度
     # rstride:行之间的跨度  cstride:列之间的跨度
@@ -33,4 +39,4 @@ def F1Plot():
     ax.set_title('F1_space')
     plt.show()
 
-F1Plot()
+F4Plot()
