@@ -117,8 +117,8 @@ def F12(X):
 
 
 f13_dim = 30
-f13_lb = -5.12 * np.ones(f13_dim)
-f13_ub = 5.12 * np.ones(f13_dim)
+f13_lb = -50 * np.ones(f13_dim)
+f13_ub = 50 * np.ones(f13_dim)
 def F13(X):
     dim=X.shape[0]
     Results=0.1*((np.sin(3*np.pi*X[0]))**2+np.sum((X[0:dim-1]-1)**2*(1+(np.sin(3*np.pi*X[1:dim]))**2))+\
@@ -127,8 +127,8 @@ def F13(X):
     return Results
 
 f14_dim = 30
-f14_lb = -5.12 * np.ones(f14_dim)
-f14_ub = 5.12 * np.ones(f14_dim)
+f14_lb = -65 * np.ones(f14_dim)
+f14_ub = 65 * np.ones(f14_dim)
 def F14(X):
     aS=np.array([[-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32],\
                  [-32,-32,-32,-32,-32,-16,-16,-16,-16,-16,0,0,0,0,0,16,16,16,16,16,32,32,32,32,32]])
@@ -141,8 +141,8 @@ def F14(X):
     return Results
 
 f15_dim = 30
-f15_lb = -5.12 * np.ones(f15_dim)
-f15_ub = 5.12 * np.ones(f15_dim)
+f15_lb = -5 * np.ones(f15_dim)
+f15_ub = 5 * np.ones(f15_dim)
 def F15(X):
     aK=np.array([0.1957,0.1947,0.1735,0.16,0.0844,0.0627,0.0456,0.0342,0.0323,0.0235,0.0246])
     bK=np.array([0.25,0.5,1,2,4,6,8,10,12,14,16])
@@ -151,31 +151,31 @@ def F15(X):
     
     return Results
 
-f9_dim = 30
-f9_lb = -5.12 * np.ones(f5_dim)
-f9_ub = 5.12 * np.ones(f5_dim)
+f16_dim = 30
+f16_lb = -5 * np.ones(f16_dim)
+f16_ub = 5 * np.ones(f16_dim)
 def F16(X):
     Results=4*(X[0]**2)-2.1*(X[0]**4)+(X[0]**6)/3+X[0]*X[1]-4*(X[1]**2)+4*(X[1]**4)
     return Results
 
-f9_dim = 30
-f9_lb = -5.12 * np.ones(f5_dim)
-f9_ub = 5.12 * np.ones(f5_dim)
+f17_dim = 30
+f17_lb = -5 * np.ones(f17_dim)
+f17_ub = 5 * np.ones(f17_dim)
 def F17(X):
     Results=(X[1]-(X[0]**2)*5.1/(4*(np.pi**2))+(5/np.pi)*X[0]-6)**2+10*(1-1/(8*np.pi))*np.cos(X[0])+10
     return Results
 
-f9_dim = 30
-f9_lb = -5.12 * np.ones(f5_dim)
-f9_ub = 5.12 * np.ones(f5_dim)
+f18_dim = 30
+f18_lb = -2 * np.ones(f18_dim)
+f18_ub = 2 * np.ones(f18_dim)
 def F18(X):
     Results=(1+(X[0]+X[1]+1)**2*(19-14*X[0]+3*(X[0]**2)-14*X[1]+6*X[0]*X[1]+3*X[1]**2))*\
     (30+(2*X[0]-3*X[1])**2*(18-32*X[0]+12*(X[0]**2)+48*X[1]-36*X[0]*X[1]+27*(X[1]**2)))
     return Results
 
-f9_dim = 30
-f9_lb = -5.12 * np.ones(f5_dim)
-f9_ub = 5.12 * np.ones(f5_dim)
+f19_dim = 30
+f19_lb = 1 * np.ones(f19_dim)
+f19_ub = 3 * np.ones(f19_dim)
 def F19(X):
     aH=np.array([[3,10,30],[0.1,10,35],[3,10,30],[0.1,10,35]])
     cH=np.array([1,1.2,3,3.2])
@@ -185,9 +185,9 @@ def F19(X):
         Results=Results-cH[i]*np.exp(-(np.sum(aH[i,:]*((X-pH[i,:]))**2)))
     return Results
 
-f9_dim = 30
-f9_lb = -5.12 * np.ones(f5_dim)
-f9_ub = 5.12 * np.ones(f5_dim)
+f20_dim = 30
+f20_lb = 0 * np.ones(f20_dim)
+f20_ub = 1 * np.ones(f20_dim)
 def F20(X):
     aH=np.array([[10,3,17,3.5,1.7,8],[0.05,10,17,0.1,8,14],[3,3.5,1.7,10,17,8],[17,8,0.05,10,0.1,14]])
     cH=np.array([1,1.2,3,3.2])
@@ -198,9 +198,9 @@ def F20(X):
         Results=Results-cH[i]*np.exp(-(np.sum(aH[i,:]*((X-pH[i,:]))**2)))
     return Results
 
-f9_dim = 30
-f9_lb = -5.12 * np.ones(f5_dim)
-f9_ub = 5.12 * np.ones(f5_dim)
+f21_dim = 30
+f21_lb = 0 * np.ones(f21_dim)
+f21_ub = 10 * np.ones(f21_dim)
 def F21(X):
     aSH=np.array([[4,4,4,4],[1,1,1,1],[8,8,8,8],[6,6,6,6],[3,7,3,7],\
                   [2,9,2,9],[5,5,3,3],[8,1,8,1],[6,2,6,2],[7,3.6,7,3.6]])
@@ -210,9 +210,9 @@ def F21(X):
         Results=Results-(np.dot((X-aSH[i,:]),(X-aSH[i,:]).T)+cSH[i])**(-1)
     return Results
 
-f9_dim = 30
-f9_lb = -5.12 * np.ones(f5_dim)
-f9_ub = 5.12 * np.ones(f5_dim)
+f22_dim = 30
+f22_lb = 0 * np.ones(f22_dim)
+f22_ub = 10 * np.ones(f22_dim)
 def F22(X):
     aSH=np.array([[4,4,4,4],[1,1,1,1],[8,8,8,8],[6,6,6,6],[3,7,3,7],\
                   [2,9,2,9],[5,5,3,3],[8,1,8,1],[6,2,6,2],[7,3.6,7,3.6]])
@@ -223,9 +223,9 @@ def F22(X):
     return Results
 
 
-f9_dim = 30
-f9_lb = -5.12 * np.ones(f5_dim)
-f9_ub = 5.12 * np.ones(f5_dim)
+f23_dim = 30
+f23_lb = 0 * np.ones(f23_dim)
+f23_ub = 10 * np.ones(f23_dim)
 def F23(X):
     aSH = np.array([[4, 4, 4, 4], [1, 1, 1, 1], [8, 8, 8, 8], [6, 6, 6, 6], [3, 7, 3, 7],
                     [2, 9, 2, 9], [5, 5, 3, 3], [8, 1, 8, 1], [6, 2, 6, 2], [7, 3.6, 7, 3.6]])
