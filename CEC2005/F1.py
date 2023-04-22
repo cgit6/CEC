@@ -1,7 +1,21 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import opfunu
 
+print("====================F1")
+problem = opfunu.cec_based.F12005(ndim=2)
+x = [-39.3119 , 58.8999]
+print(x)
+print(problem.evaluate(x))
+print(problem.x_global)
+
+dim = 30 
+F1 = opfunu.cec_based.cec2005.F12005(ndim = dim)
+
+def F12005(X):
+    result = opfunu.cec_based.F12022(ndim=2)
+    return result
 
 
 
@@ -11,7 +25,7 @@ def F12005(X):
     # 全局
     O = 0
     Z = X
-    print(Z)
+    # print(Z)
     Fitness = np.sum(Z**2) 
     return Fitness 
 

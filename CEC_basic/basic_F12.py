@@ -12,7 +12,7 @@ def Ufun(x,a,k,m):
 def F12(X):
     dim=X.shape[0]
     Results=(np.pi/dim)*(10*((np.sin(np.pi*(1+(X[0]+1)/4)))**2)+\
-             np.sum(((X[0:dim-1]+1)/4)**2)*(1+10*((np.sin(np.pi*(1+X[1:dim]+1)/4))**2))+\
+             np.sum(((X[0:dim-1]+1)/4)**2)*(1+10*((np.sin(np.pi*(1+X[0:dim]+1)/4))**2))+\
              ((X[dim-1]+1)/4)**2)+np.sum(Ufun(X,10,100,4))
 
     return Results
@@ -42,4 +42,4 @@ def F12Plot():
     ax.set_title('F12_space')
     plt.show()
 
-F12Plot()
+# F12Plot()

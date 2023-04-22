@@ -5,7 +5,8 @@ from mpl_toolkits.mplot3d import Axes3D
 
 def F11(X):
     dim=X.shape[0]
-    Temp=np.arange(1,dim,1)
+    Temp=np.arange(1,dim+1,1)
+    # np.prod
     Results=np.sum(X**2)/4000-np.prod(np.cos(X/np.sqrt(Temp)))+1
 
     return Results
