@@ -2,20 +2,20 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import opfunu
 
-def F3(X):
-    dim=X.shape[0]
-    Results=0
-    for i in range(dim):
-        # 加總平方的加總
-        Results=Results+np.sum(X[0:i+1])**2
-    return Results
+def F3_2014(X):
+    dim = X.shape[0]
+    F3 = opfunu.cec_based.cec2014.F32014(ndim = dim)
+    F3_2014=F3.evaluate(X)
+    # print("解",F3_2014)
+    return F3_2014
 
 def F3Plot():
     fig = plt.figure(1) #定义figure
     ax = Axes3D(fig) #将figure变为3d
-    x1=np.arange(-100,100,2) #定义x1，范围为[-100,100],间隔为2
-    x2=np.arange(-100,100,2) #定义x2，范围为[-100,100],间隔为2
+    x1=np.arange(-100,100,5) #定义x1，范围为[-100,100],间隔为2
+    x2=np.arange(-100,100,5) #定义x2，范围为[-100,100],间隔为2
     X1,X2=np.meshgrid(x1,x2) #生成网格
     nSize = x1.shape[0]
     Z=np.zeros([nSize,nSize])
@@ -23,7 +23,7 @@ def F3Plot():
         for j in range(nSize):
             X=[X1[i,j],X2[i,j]] #构造F3输入
             X=np.array(X) #将格式由list转换为array
-            Z[i,j]=F3(X)  #计算F3的值
+            Z[i,j]= F3_2014(X)  #计算F3的值
     #绘制3D曲面
     # rstride:行之间的跨度  cstride:列之间的跨度
     # rstride:行之间的跨度  cstride:列之间的跨度

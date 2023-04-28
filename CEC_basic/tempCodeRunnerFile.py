@@ -1,29 +1,27 @@
-'''F3绘图函数'''
+'''F2绘图函数'''
 import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-def F3(X):
-    dim=X.shape[0]
-    Results=0
-    for i in range(dim):
-        # 加總平方的加總
-        Results=Results+np.sum(X[0:i+1])**2
+def F2(X):
+    Results=np.sum(np.abs(X))+np.prod(np.abs(X))
     return Results
 
-def F3Plot():
+def F2Plot():
     fig = plt.figure(1) #定义figure
     ax = Axes3D(fig) #将figure变为3d
-    x1=np.arange(-100,100,2) #定义x1，范围为[-100,100],间隔为2
-    x2=np.arange(-100,100,2) #定义x2，范围为[-100,100],间隔为2
+    x1=np.arange(-10,10,0.2) #定义x1，范围为[-10,10],间隔为0.2
+    x2=np.arange(-10,10,0.2) #定义x2，范围为[-10,10],间隔为0.2
     X1,X2=np.meshgrid(x1,x2) #生成网格
     nSize = x1.shape[0]
     Z=np.zeros([nSize,nSize])
+
     for i in range(nSize):
         for j in range(nSize):
-            X=[X1[i,j],X2[i,j]] #构造F3输入
+            X=[X1[i,j],X2[i,j]] #构造F2输入
             X=np.array(X) #将格式由list转换为array
-            Z[i,j]=F3(X)  #计算F3的值
+            Z[i,j]=F2(X)  #计算F2的值
+
     #绘制3D曲面
     # rstride:行之间的跨度  cstride:列之间的跨度
     # rstride:行之间的跨度  cstride:列之间的跨度
@@ -33,7 +31,7 @@ def F3Plot():
     ax.set_xlabel('X1')#x轴说明
     ax.set_ylabel('X2')#y轴说明
     ax.set_zlabel('Z')#z轴说明
-    ax.set_title('F3_space')
+    ax.set_title('F2_space')
     plt.show()
 
-F3Plot()
+F2Plot()
